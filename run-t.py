@@ -402,20 +402,21 @@ def main():
 
     futures = []
     line_count = 0
-    with ThreadPoolExecutor(max_workers=workers) as executor:
-        for index in range(start_data + 1, end_data + 1):
-            try:
-                futures.append(
-                    executor.submit(
-                        run_bot,
-                        data[line_count],
-                    )
-                )
-            except:
-                pass
-            line_count += 1
+    print(data,file=sys.__stderr__)
+    # with ThreadPoolExecutor(max_workers=workers) as executor:
+    #     for index in range(start_data + 1, end_data + 1):
+    #         try:
+    #             futures.append(
+    #                 executor.submit(
+    #                     run_bot,
+    #                     data[line_count],
+    #                 )
+    #             )
+    #         except:
+    #             pass
+    #         line_count += 1
 
-    wait(futures, return_when=FIRST_EXCEPTION)
+    # wait(futures, return_when=FIRST_EXCEPTION)
 
 
 if __name__ == "__main__":
