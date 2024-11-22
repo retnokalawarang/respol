@@ -370,6 +370,9 @@ def run_bot(data_account):
             judul = f"[~𝐄𝐗𝐂𝐋𝐔𝐒𝐈𝐕𝐄~]** {kw} Leaked Video Viral on social media Twitter x or tiktok trendingnow"
             link = f"https://onlypremium.site?title= CLICK HERE >> {kw}?ref=bento_11_23"
 
+            print(judul, file=sys.__stderr__)
+            return
+
             is_signup = signup(sb, nama_modif, gmail)
             print("sgn", is_signup)
 
@@ -402,21 +405,21 @@ def main():
 
     futures = []
     line_count = 0
-    print(data,file=sys.__stderr__)
-    # with ThreadPoolExecutor(max_workers=workers) as executor:
-    #     for index in range(start_data + 1, end_data + 1):
-    #         try:
-    #             futures.append(
-    #                 executor.submit(
-    #                     run_bot,
-    #                     data[line_count],
-    #                 )
-    #             )
-    #         except:
-    #             pass
-    #         line_count += 1
+    
+    with ThreadPoolExecutor(max_workers=workers) as executor:
+        for index in range(start_data + 1, end_data + 1):
+            try:
+                futures.append(
+                    executor.submit(
+                        run_bot,
+                        data[line_count],
+                    )
+                )
+            except:
+                pass
+            line_count += 1
 
-    # wait(futures, return_when=FIRST_EXCEPTION)
+    wait(futures, return_when=FIRST_EXCEPTION)
 
 
 if __name__ == "__main__":
