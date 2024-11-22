@@ -2,7 +2,7 @@ name: Run
 
 on:
   push:
-    branches: ["main"]
+    branches: ["mainu"]
 
 jobs:
   build:
@@ -24,9 +24,10 @@ jobs:
       - name: Install
         run: |
           python -m pip install --upgrade pip wheel setuptools
-          python -m pip install selenium
+          python -m pip install seleniumbase
           python -m pip install supabase
           sudo apt install -y google-chrome-stable
+          seleniumbase install chromedriver
           sudo apt install -y xvfb
           export DISPLAY=:0
           /usr/bin/Xvfb :0 -screen 0 1024x768x24 &
