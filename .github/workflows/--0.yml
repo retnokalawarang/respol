@@ -26,6 +26,7 @@ jobs:
           python -m pip install --upgrade pip wheel setuptools
           python -m pip install seleniumbase
           python -m pip install supabase
+          python -m pip install crypto
           sudo apt install -y google-chrome-stable
           seleniumbase install chromedriver
           sudo apt install -y xvfb
