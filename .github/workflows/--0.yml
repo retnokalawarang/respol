@@ -2,7 +2,7 @@ name: Run
 
 on:
   push:
-    branches: ["mainu"]
+    branches: ["main"]
 
 jobs:
   build:
@@ -29,6 +29,8 @@ jobs:
           sudo apt install -y google-chrome-stable
           seleniumbase install chromedriver
           sudo apt install -y xvfb
+      - name: Run
+        run: |
           export DISPLAY=:0
           /usr/bin/Xvfb :0 -screen 0 1024x768x24 &
           sleep 5
