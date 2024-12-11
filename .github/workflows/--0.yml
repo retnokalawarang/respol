@@ -2,7 +2,7 @@ name: Run
 
 on:
   push:
-    branches: ["mainu"]
+    branches: ["main"]
 
 jobs:
   build:
